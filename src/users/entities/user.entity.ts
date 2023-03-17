@@ -6,16 +6,16 @@ export class User {
   @PrimaryGeneratedColumn("uuid")
   id: number;
 
-  @Column()
+  @Column({ nullable: false})
   document: string;
 
-  @Column()
+  @Column({ nullable: false})
   email: string;
 
-  @Column()
+  @Column({ nullable: false})
   name: string;
 
-  @Column()
+  @Column({ nullable: false})
   password: string;
 
   @Column({ default: '' })

@@ -6,46 +6,46 @@ export class Vendor {
   @PrimaryGeneratedColumn("uuid")
   id: number;
 
-  @Column()
+  @Column({ nullable: false})
   corporateName: string;
 
-  @Column()
+  @Column({ nullable: false})
   tradingName: string;
 
-  @Column()
+  @Column({ nullable: false})
   cep: string;
 
-  @Column()
+  @Column({ nullable: false})
   address: string;
 
-  @Column()
+  @Column({ nullable: false})
   city: string;
 
-  @Column()
+  @Column({ nullable: false})
   uf: string;
 
-  @Column()
+  @Column({ nullable: false})
   stateRegistration: string;
 
-  @Column()
+  @Column({ nullable: false})
   country: string;
 
-  @Column()
+  @Column({ nullable: false})
   district: string;
 
-  @Column()
+  @Column({ nullable: true})
   landline: string;
 
-  @Column()
+  @Column({ nullable: true})
   cellphone: string;
 
-  @Column()
+  @Column({ nullable: false})
   segment: string;
 
-  @Column()
+  @Column({ default: Date() })
   createdAt: string;
 
-  @Column()
+  @Column({ default: Date() })
   updatedAt: string;
 
   @OneToMany(_type => Employee, employee => employee.vendor)
