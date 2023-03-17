@@ -9,7 +9,8 @@ import { VendorsModule } from "./vendors/vendors.module";
 import { ProfilesModule } from "./profiles/profiles.module";
 import { Profile } from "./profiles/entities/profile.entity";
 import { Vendor } from "./vendors/entities/vendor.entity";
-
+import { EmployeeModule } from './employee/employee.module';
+import { Employee } from "./employee/entities/employee.entity";
 @Module({
   imports: [
     TypeOrmModule.forRoot({
@@ -19,7 +20,7 @@ import { Vendor } from "./vendors/entities/vendor.entity";
       username: "pzwhhqqg",
       password: "29S4sTUnawx4c_vYRcbavIy7jrpudfaH",
       database: "pzwhhqqg",
-      entities: [User, Branch, Profile, Vendor],
+      entities: [User, Branch, Profile, Vendor, Employee],
       synchronize: true,
       logging: ["query", "error"],
     }),
@@ -27,6 +28,7 @@ import { Vendor } from "./vendors/entities/vendor.entity";
     BranchsModule,
     VendorsModule,
     ProfilesModule,
+    EmployeeModule,
   ],
 })
 export class AppModule {

@@ -1,4 +1,6 @@
-import { Entity, Column, PrimaryGeneratedColumn } from "typeorm";
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import { Employee } from "src/employee/entities/employee.entity";
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from "typeorm";
 @Entity({ name: "users" })
 export class User {
   @PrimaryGeneratedColumn("uuid")
@@ -16,24 +18,27 @@ export class User {
   @Column()
   password: string;
 
-  @Column()
+  @Column({ default: '' })
   recoveringToken: string;
 
-  @Column()
+  @Column({ default: '' })
   recoveringTokenExpiration: string;
 
-  @Column()
+  @Column({ default: false })
   isActive: boolean;
 
-  @Column()
+  @Column({ default: false })
   isManager: boolean;
 
-  @Column()
+  @Column({ default: false })
   isSysAdmin: boolean;
 
-  @Column()
+  @Column({ default: Date()})
   createdAt: string;
 
-  @Column()
+  @Column({ default: Date()})
   updatedAt: string;
+
+  @OneToMany(_type => Employee, employee => employee.user)
+  employee: Employee[];
 }

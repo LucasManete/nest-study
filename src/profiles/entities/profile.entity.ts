@@ -1,4 +1,6 @@
-import { Entity, Column, PrimaryGeneratedColumn } from "typeorm";
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import { Employee } from "src/employee/entities/employee.entity";
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from "typeorm";
 
 @Entity({ name: "profiles" })
 export class Profile {
@@ -11,7 +13,7 @@ export class Profile {
   @Column()
   description: string;
 
-  @Column({ array: true })
+  @Column({ type: "simple-array", default: [] })
   permissions: string[];
 
   @Column()
@@ -22,4 +24,7 @@ export class Profile {
 
   @Column()
   updatedAt: string;
+
+  @OneToMany(_type => Employee, employee => employee.profile)
+  employee: Employee[];
 }

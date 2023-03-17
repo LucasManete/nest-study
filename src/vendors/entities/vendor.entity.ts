@@ -1,4 +1,6 @@
-import { Entity, Column, PrimaryGeneratedColumn } from "typeorm";
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import { Employee } from "src/employee/entities/employee.entity";
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany, ManyToOne } from "typeorm";
 @Entity({ name: "vendors" })
 export class Vendor {
   @PrimaryGeneratedColumn("uuid")
@@ -45,4 +47,7 @@ export class Vendor {
 
   @Column()
   updatedAt: string;
+
+  @OneToMany(_type => Employee, employee => employee.vendor)
+  employee: Employee[];
 }
